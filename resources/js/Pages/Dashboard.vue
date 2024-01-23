@@ -2,6 +2,8 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import Todo from '@/Pages/Todo.vue'; 
+import Weather from '@/Components/Weather.vue'; 
+
 
 
 </script>
@@ -34,6 +36,14 @@ import Todo from '@/Pages/Todo.vue';
                 <div>
                     <div>
                         <Todo />
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div>
+                    <div>
+                        <Weather />
                     </div>
                 </div>
             </div>
