@@ -27,7 +27,7 @@
     methods: {
       async fetchWeather() {
         try {
-          const response = await axios.get(`https://api.weatherapi.com/v1/current.json?key=apikey&q=${this.city}&aqi=no`);
+          const response = await axios.get(`https://api.weatherapi.com/v1/current.json?key=35b97c8b19214737a0e144321231302&q=${this.city}&aqi=no`);
           this.weather = response.data;
         } catch (error) {
           console.error("Error fetching weather data:", error);
@@ -49,6 +49,7 @@
     margin: 0 auto;
     color: white;
     margin: 0 auto;
+    margin-left: 300px
   }
   .button {color: white;
 background-color: tomato;
