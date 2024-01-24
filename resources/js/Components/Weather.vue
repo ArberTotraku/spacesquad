@@ -31,7 +31,7 @@
           this.weather = response.data;
         } catch (error) {
           console.error("Error fetching weather data:", error);
-          this.weather = null; // Reset weather data on error
+          this.weather = null; 
         }
       },
     },
@@ -40,7 +40,7 @@
   
   <style>
   .weather-widget {
-    /* Add your styling here */
+
     background-color: blue;
     margin-top: 10%;
     font-size: 1rem;
