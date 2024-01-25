@@ -4,6 +4,7 @@ import Weather from './Weather.vue';
 import Todo from './Todo.vue';
 import OrderForm from '@/Components/OrderForm.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
+import MenuAnimated from '@/Components/MenuAnimated.vue';
 
 
 defineProps({
@@ -22,10 +23,10 @@ defineProps({
 
     <GuestLayout>
         <Head title="Log in" />
-
-        <Weather/>
+<MenuAnimated />
+        <!-- <Weather/>
         <Todo/>
-        <OrderForm/>
+        <OrderForm/>   -->
     </GuestLayout>
  
   

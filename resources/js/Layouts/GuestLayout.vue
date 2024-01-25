@@ -20,7 +20,7 @@ import { Link } from '@inertiajs/vue3';
             <slot />
         </div>
 
-        <div>
+       <!-- <div> 
             <Weather/>
         </div>
 
@@ -30,7 +30,7 @@ import { Link } from '@inertiajs/vue3';
 
         <div>
             <OrderForm/>
-        </div>
+        </div>  -->
 
     </div>
 </template>
