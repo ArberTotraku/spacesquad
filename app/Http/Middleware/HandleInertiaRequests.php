@@ -29,11 +29,18 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $menuitems = [
+            [
+                'route' => 'inventory.page',
+                'name' => 'Inventory',
+            ]
+        ];
         return [
             ...parent::share($request),
             'auth' => [
                 'user' => $request->user(),
             ],
+            'menu' => $menuitems
         ];
     }
 }
