@@ -1,8 +1,5 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
-import Weather from './Weather.vue';
-import Todo from './Todo.vue';
-import OrderForm from '@/Components/OrderForm.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import MenuAnimated from '@/Components/MenuAnimated.vue';
 

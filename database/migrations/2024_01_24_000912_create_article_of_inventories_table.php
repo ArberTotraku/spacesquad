@@ -16,8 +16,13 @@ return new class extends Migration
             $table->id();
             $table->string('article_name');
             $table->foreignIdFor(InventoryCategory::class)->constrained()->onDelete('cascade');
-            $table->enum('type', ['Drinks', 'Snacks', 'Take-Away', 'Board-Game']);
-            $table->integer('price');
+            $table->enum('type', [
+                'all',
+                'Drinks',
+                'Snacks',
+                'Take-Away',
+                'Board-Game'
+            ]);
             $table->timestamps();
         });
     }

@@ -1,8 +1,5 @@
 <script setup>
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import OrderForm from '@/Components/OrderForm.vue';
-import Weather from '@/Components/Weather.vue';
-import Todo from '@/Pages/Todo.vue';
 import { Link } from '@inertiajs/vue3';
 </script>
 

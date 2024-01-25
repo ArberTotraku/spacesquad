@@ -41,7 +41,7 @@ onMounted(() => {});
         <div class="w-full overflow-hidden ">
             <div class="h-full overflow-y-auto">
                 <ul class="flex flex-col scroll">
-                    <li v-for="link in navLinks" :key="link" class="text-sm">
+                    <li v-for="link in navLinks" :key="link" class="text-sm text-center">
                         <NavLink
                             :classNames="'py-2'"
                             :href="route(link.route)"
@@ -99,7 +99,7 @@ onMounted(() => {});
 }
 /* v-sidebar-menu vsm_collapsed vsm_white-theme */
 
-.localPopoverButton {
+/* .localPopoverButton {
     @apply w-full flex items-center space-x-2 !py-1.5 !px-2
 }
 
@@ -109,6 +109,6 @@ onMounted(() => {});
 
 .v-sid-menu .title {
     text-transform: uppercase;
-}
+} */
 </style>
 
