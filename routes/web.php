@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     // go to form page to create inventory and articles
     Route::get('invetory', [InventoryCategoryController::class, 'index'])->name('inventory.page');
+    Route::post('invetory', [InventoryCategoryController::class, 'store'])->name('inventory.store');
 });
 
 require __DIR__.'/auth.php';
