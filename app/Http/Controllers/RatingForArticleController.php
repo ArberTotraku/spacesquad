@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class InventoryCategoryController extends Controller
+class RatingForArticleController extends Controller
 {
     //
 }

@@ -18,7 +18,6 @@ const { targets } = storeToRefs(menu);
 // props
 const prop = defineProps({
     navLinks: Array,
-    navLinksSettings: Array,
     open: Boolean,
 });
 
@@ -99,7 +98,7 @@ onMounted(() => {});
 }
 /* v-sidebar-menu vsm_collapsed vsm_white-theme */
 
-/* .localPopoverButton {
+.localPopoverButton {
     @apply w-full flex items-center space-x-2 !py-1.5 !px-2
 }
 
@@ -109,6 +108,6 @@ onMounted(() => {});
 
 .v-sid-menu .title {
     text-transform: uppercase;
-} */
+}
 </style>
 

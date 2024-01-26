@@ -33,8 +33,13 @@ class HandleInertiaRequests extends Middleware
             [
                 'route' => 'inventory.page',
                 'name' => 'Inventory',
-            ]
+            ],
+            [
+                'route' => 'map.with.inventory',
+                'name' => 'Find me',
+            ],
         ];
+
         return [
             ...parent::share($request),
             'auth' => [

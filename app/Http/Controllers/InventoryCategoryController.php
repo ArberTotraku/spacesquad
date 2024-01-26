@@ -41,4 +41,36 @@ class InventoryCategoryController extends Controller
     {
         $inventory->delete();
     }
+
+    public function updateArticle(ArticleOfInventory $article, Request $request)
+    {
+        $article->update([
+            'article_name' => $request->article_name,
+            'edit' => 1,
+            'type' => $request->type
+        ]);
+        return response()->json($article);
+    }
+
+    public function updateEdit(ArticleOfInventory $article)
+    {
+        $article->update([ 'edit' => 1 ]);
+    }
+
+    public function deleteArticle(ArticleOfInventory $article)
+    {
+        $inventory = $article->inventory_category_id;
+        $article->delete();
+        $articles = ArticleOfInventory::whereInventoryCategoryId($inventory)->get();
+        return response()->json($articles);
+    }
+
+    public function updateInventory(InventoryCategory $inventory, Request $request)
+    {
+        $inventory->update([
+            'name' => $request->name
+        ]);
+
+        return response()->json('done');
+    }
 }

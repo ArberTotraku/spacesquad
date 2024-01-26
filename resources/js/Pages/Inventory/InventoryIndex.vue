@@ -18,15 +18,31 @@ const {
     setUpInventories,
     saveInventoryAndOpenModal,
     storeArticleAndAppendFormkit,
-    deleteInventory
+    deleteInventory,
+    updateArticle,
+    triggerSubmitArticle,
+    updateInventory,
+    closeModal,
+    triggerUpdateInventory,
+    deleteArticle,
 } = storeinvetory
 const {
     showing,
+    options,
     inventory,
     formkitclasses,
     triggerchange,
-    articles
+    articles,
+    forminventory,
+    articleCartRef
 } = storeToRefs(storeinvetory)
+
+// methods
+const setOptionDynRef = (payload) => {
+    return el => {
+        articleCartRef.value[payload] = el;
+    };
+}
 
 onBeforeMount(() => {
     setUpInventories(prop.inventories)
@@ -72,25 +88,55 @@ watch(triggerchange, (change) => {
                 </div>
             </div>
             <div class="flex-col px-8 flex w-full mt-20 h-[50vh]">
-                <FormKit ref="formacat" type="form" :actions="false">
-                    <FormKit type="text" label="Category title" :classes="formkitclasses" :value="inventory?.name" />
+                <FormKit
+                ref="forminventory"
+                type="form"
+                :actions="false"
+                @submit="updateInventory">
+                    <FormKit type="text" label="Category title" name="name" :classes="formkitclasses" :value="inventory?.name" />
+                    <FormKit type="hidden" name="inventory" :value="inventory" />
                 </FormKit>
-                <button class="px-2 py-1 mx-auto mt-2 rounded-md w-fit bg-emerald-300" @click="storeArticleAndAppendFormkit">
+                <button type="button" class="px-2 py-1 mx-auto mt-2 rounded-md w-fit bg-emerald-300" @click="storeArticleAndAppendFormkit">
                     + Article
                 </button>
-                <div class="h-[30] overflow-y-auto">
-                    <FormKit ref="formarticle" type="form" :actions="false" v-for="article in articles" :key="article.id">
+                <div class="h-[30vh] overflow-y-auto">
+                    <FormKit
+                    :ref="setOptionDynRef(article.id)"
+                    @submit="updateArticle"
+                    type="form"
+                    :actions="false"
+                    v-for="article in articles"
+                    :key="article.id">
                         <div class="grid grid-cols-12 gap-x-3">
-                            <div class="grid grid-cols-12 col-span-9 gap-x-2">
-                                <div class="col-span-9">
-                                    <FormKit type="text" label="Name" :classes="formkitclasses" />
+                            <div class="grid grid-cols-12 col-span-8 gap-x-2">
+                                <div class="col-span-8">
+                                    <FormKit type="text" :disabled="article?.edit" :value="article?.article_name" name="article_name" label="Name" :classes="formkitclasses" />
+                                    <FormKit type="hidden" name="article" :value="article" />
                                 </div>
-                                <div class="col-span-3">
-                                    <FormKit type="select" label="Name" :classes="formkitclasses" />
+                                <div class="col-span-4">
+                                    <FormKit type="select" name="type" :disabled="article?.edit" :value="article?.type" :options="options" label="Type" :classes="formkitclasses" />
                                 </div>
+                            </div>
+                            <div class="grid grid-cols-2 col-span-4 gap-x-3">
+                                <button type="button" class="py-2 mt-auto rounded-md bg-emerald-400 h-fit text-slate-50"
+                                @click="triggerSubmitArticle(article)">
+                                    sa
+                                </button>
+                                <button type="button" class="py-2 mt-auto bg-red-600 rounded-md text-slate-50 h-fit"
+                                @click="deleteArticle(article)">
+                                    de
+                                </button>
                             </div>
                         </div>
                     </FormKit>
+                </div>
+                <div class="flex justify-center w-8/12 ml-auto gap-x-2">
+                    <button type="button" class="px-3 py-1 shadow-sm bg-slate-300" @click="closeModal">
+                        CLOSE INVENTORY
+                    </button>
+                    <button type="button" class="px-3 py-1 shadow-sm bg-emerald-500" @click="triggerUpdateInventory">
+                        SAVE INVENTORY
+                    </button>
                 </div>
             </div>
         </Modal>

@@ -4,17 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+// use Spatie\MediaLibrary\HasMedia;
+// use Spatie\MediaLibrary\InteractsWithMedia;
 
-class ArticleOfInventory extends Model implements HasMedia
+class ArticleOfInventory extends Model
 {
-    use HasFactory, InteractsWithMedia;
+    use HasFactory;
 
     protected $fillable = [
         'article_name',
         'inventory_category_id',
         'type',
-        'price',
+        'edit',
     ];
+
+    protected $casts = [ 'edit' => 'boolean' ];
+
+    public function rating() : BelongsTo
+    {
+        return $this->belongsTo(RatingForArticle::class);
+    }
 }

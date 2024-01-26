@@ -23,6 +23,7 @@ return new class extends Migration
                 'Take-Away',
                 'Board-Game'
             ]);
+            $table->tinyInteger('edit')->default(0);
             $table->timestamps();
         });
     }
